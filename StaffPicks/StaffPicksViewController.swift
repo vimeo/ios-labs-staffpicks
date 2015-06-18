@@ -9,20 +9,42 @@
 import UIKit
 
 class StaffPicksViewController: UIViewController, UITableViewDataSource {
-    
-    let cellIdentifier = "VideoCellIdentifier"
-    
-    var strings = ["one", "two", "three"]
+        
+    var items: [Video] = []
 
     @IBOutlet weak var tableView: UITableView?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+  
+        let nib = UINib(nibName: "VideoCell", bundle: nil)
         
-        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.tableView?.registerNib(nib, forCellReuseIdentifier: VideoCell.CellIdentifier)
+
         self.tableView?.dataSource = self
-    
+        
+        VimeoClient.staffpicks { [weak self] (videos, error) -> Void in
+            
+            if let strongSelf = self {
+
+                if let constError = error {
+                    
+                    println("Error fetching staffpicks! \(constError.localizedDescription)")
+                    
+                    return
+                }
+                
+                assert(videos != nil, "videos array should never be nil")
+                
+                if let constVideos = videos {
+                    
+                    strongSelf.items = constVideos
+                    
+                    strongSelf.tableView?.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -34,16 +56,17 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.strings.count
+        return self.items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(VideoCell.CellIdentifier) as! VideoCell
         
         let index = indexPath.row
+        let video = self.items[index]
         
-        cell.textLabel?.text = strings[index]
+        cell.textLabel?.text = video.title
         
         return cell
     }
