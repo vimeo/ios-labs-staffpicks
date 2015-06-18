@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C7229E901B20A80C00C7CADC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229E8F1B20A80C00C7CADC /* AppDelegate.swift */; };
-		C7229E921B20A80C00C7CADC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229E911B20A80C00C7CADC /* ViewController.swift */; };
-		C7229E951B20A80C00C7CADC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7229E931B20A80C00C7CADC /* Main.storyboard */; };
 		C7229E971B20A80C00C7CADC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7229E961B20A80C00C7CADC /* Images.xcassets */; };
 		C7229E9A1B20A80C00C7CADC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7229E981B20A80C00C7CADC /* LaunchScreen.xib */; };
 		C7229EA61B20A80D00C7CADC /* StaffPicksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229EA51B20A80C00C7CADC /* StaffPicksTests.swift */; };
+		C7229EB11B20ACE000C7CADC /* StaffPicksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229EAF1B20ACE000C7CADC /* StaffPicksViewController.swift */; };
+		C7229EB21B20ACE000C7CADC /* StaffPicksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7229EB01B20ACE000C7CADC /* StaffPicksViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +29,13 @@
 		C7229E8A1B20A80C00C7CADC /* StaffPicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StaffPicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7229E8E1B20A80C00C7CADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7229E8F1B20A80C00C7CADC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7229E911B20A80C00C7CADC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C7229E941B20A80C00C7CADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7229E961B20A80C00C7CADC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C7229E991B20A80C00C7CADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C7229E9F1B20A80C00C7CADC /* StaffPicksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaffPicksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7229EA41B20A80C00C7CADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7229EA51B20A80C00C7CADC /* StaffPicksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffPicksTests.swift; sourceTree = "<group>"; };
+		C7229EAF1B20ACE000C7CADC /* StaffPicksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffPicksViewController.swift; sourceTree = "<group>"; };
+		C7229EB01B20ACE000C7CADC /* StaffPicksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffPicksViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				C7229E8F1B20A80C00C7CADC /* AppDelegate.swift */,
-				C7229E911B20A80C00C7CADC /* ViewController.swift */,
-				C7229E931B20A80C00C7CADC /* Main.storyboard */,
+				C7229EAF1B20ACE000C7CADC /* StaffPicksViewController.swift */,
+				C7229EB01B20ACE000C7CADC /* StaffPicksViewController.xib */,
 				C7229E961B20A80C00C7CADC /* Images.xcassets */,
 				C7229E981B20A80C00C7CADC /* LaunchScreen.xib */,
 				C7229E8D1B20A80C00C7CADC /* Supporting Files */,
@@ -192,9 +192,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7229E951B20A80C00C7CADC /* Main.storyboard in Resources */,
 				C7229E9A1B20A80C00C7CADC /* LaunchScreen.xib in Resources */,
 				C7229E971B20A80C00C7CADC /* Images.xcassets in Resources */,
+				C7229EB21B20ACE000C7CADC /* StaffPicksViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7229E921B20A80C00C7CADC /* ViewController.swift in Sources */,
+				C7229EB11B20ACE000C7CADC /* StaffPicksViewController.swift in Sources */,
 				C7229E901B20A80C00C7CADC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,14 +236,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C7229E931B20A80C00C7CADC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C7229E941B20A80C00C7CADC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C7229E981B20A80C00C7CADC /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
