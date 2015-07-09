@@ -67,6 +67,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
         let video = self.items[index]
         
         cell.textLabel?.text = video.title
+        cell.detailTextLabel?.text = video.title
         
         return cell
     }

@@ -32,19 +32,17 @@ class VimeoClient {
                 {
                     println("request failed")
                     
-                    callback(videos: nil, error: error)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        callback(videos: nil, error: error)
+                    })
                     
                     return
                 }
                 
                 let dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
                 
-                println("data is \(dataString)")
-                
                 var JSONError: NSError?
                 let jsonDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &JSONError) as? [String:AnyObject]
-                
-                println("dictionary is \(jsonDictionary)")
                 
                 if let constJsonDictionary = jsonDictionary
                 {
@@ -52,15 +50,35 @@ class VimeoClient {
                     
                     if let constVideos = videos
                     {
+                        var videoObjects: [Video] = []
+
                         for jsonVideo in constVideos
                         {
-                            // TODO 
+                            let title = jsonVideo["name"] as? String ?? "Untitled"
+                            
+                            if let user = jsonVideo["user"] as? [String:AnyObject], let name = user["name"] as? String
+                            {
+                                // TODO: use name
+                            }
+                            
+                            var video = Video(title: title)
+                                                        
+                            videoObjects.append(video)
                         }
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            callback(videos: videoObjects, error: nil)
+                        })
+                        
+                        return
                     }
                 }
                 
+                let error = NSError(domain: "VimeoClient", code: 0, userInfo: [NSLocalizedDescriptionKey: "Something is messed up with our JSON"])
                 
-                callback(videos: [], error: nil)
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    callback(videos: nil, error: error)
+                })
             })
             
             task.resume()

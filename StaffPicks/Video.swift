@@ -10,11 +10,10 @@ import Foundation
 
 class Video {
     
-    var title: String = "Untitled"
-    var duration: Int = 0
-    var link: String?
+    var title: String
+//    var link: String?
     
-    init() {
-        
+    init(title: String) {
+        self.title = title
     }
 }
