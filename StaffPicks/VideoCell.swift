@@ -12,11 +12,39 @@ class VideoCell: UITableViewCell {
 
     static let CellIdentifier = "VideoCellIdentifier"
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var videoTitleLabel: UILabel!
+    
+    var video: Video? {
         
-        self.contentView.backgroundColor = UIColor.magentaColor()
+        didSet {
+            
+            if let constVideo = video {
+                
+                self.videoTitleLabel.text = constVideo.title
+                
+                self.setupImageView()
+                
+            }
+            
+        }
         
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+                
+    }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.videoTitleLabel.text = ""
+        
+    }
+    
+    private func setupImageView() {
+        
+    }
+    
 }

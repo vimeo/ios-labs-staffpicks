@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StaffPicksViewController: UIViewController, UITableViewDataSource {
+class StaffPicksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     var items: [Video] = []
 
@@ -23,6 +23,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
         self.tableView?.registerNib(nib, forCellReuseIdentifier: VideoCell.CellIdentifier)
 
         self.tableView?.dataSource = self
+        self.tableView?.delegate = self
         
         VimeoClient.staffpicks { [weak self] (videos, error) -> Void in
             
@@ -46,6 +47,12 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
+
+    // MARK: UITableViewDelegate
+
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
+    }
     
     // MARK: UITableViewDataSource
     
@@ -65,9 +72,8 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource {
         
         let index = indexPath.row
         let video = self.items[index]
-        
-        cell.textLabel?.text = video.title
-        cell.detailTextLabel?.text = video.title
+
+        cell.video = video
         
         return cell
     }

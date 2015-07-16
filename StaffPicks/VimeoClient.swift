@@ -54,14 +54,7 @@ class VimeoClient {
 
                         for jsonVideo in constVideos
                         {
-                            let title = jsonVideo["name"] as? String ?? "Untitled"
-                            
-                            if let user = jsonVideo["user"] as? [String:AnyObject], let name = user["name"] as? String
-                            {
-                                // TODO: use name
-                            }
-                            
-                            var video = Video(title: title)
+                            var video = Video(json: jsonVideo)
                                                         
                             videoObjects.append(video)
                         }
