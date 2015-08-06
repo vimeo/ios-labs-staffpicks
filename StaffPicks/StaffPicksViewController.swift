@@ -25,7 +25,7 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView?.dataSource = self
         self.tableView?.delegate = self
         
-        VimeoClient.staffpicks { [weak self] (videos, error) -> Void in
+        VimeoClient.myVideos { [weak self] (videos, error) -> Void in
             
             if let strongSelf = self {
 
@@ -76,5 +76,18 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource, UITable
         cell.video = video
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        let navigationController = self.navigationController
+        let viewController = VideoMetadataViewController(nibName:"VideoMetadataViewController", bundle:nil)
+        
+        let index = indexPath.row
+        let video = self.items[index]
+        
+        viewController.video = video
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

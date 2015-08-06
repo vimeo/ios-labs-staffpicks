@@ -10,6 +10,7 @@ typealias ServerResponseCallback = (videos: Array<Video>?, error: NSError?) -> V
 
 let BaseURL = "https://api.vimeo.com/"
 let StaffPicksEndpoint = "channels/staffpicks/videos"
+let MyVideosEndpoint = "me/videos"
 let AccessToken = "ccc022b6c3c6dcd2025cb92d7294dc07"
 
 import Foundation
@@ -17,12 +18,20 @@ import Foundation
 class VimeoClient {
     
     static func staffpicks(callback: ServerResponseCallback) {
+        self.requestEndpoint(StaffPicksEndpoint, callback: callback)
+    }
+    
+    static func myVideos(callback: ServerResponseCallback) {
+        self.requestEndpoint(MyVideosEndpoint, callback: callback)
+    }
+    
+    static func requestEndpoint(endpoint: String, callback: ServerResponseCallback) {
 
-        let staffpicksURL = NSURL(string: BaseURL + StaffPicksEndpoint)
+        let endpointURL = NSURL(string: BaseURL + endpoint)
 
-        if let constStaffPicksURL = staffpicksURL
+        if let constEndpointURL = endpointURL
         {
-            var request = NSMutableURLRequest(URL: constStaffPicksURL)
+            var request = NSMutableURLRequest(URL: constEndpointURL)
             request.addValue("Bearer " + AccessToken, forHTTPHeaderField: "Authorization")
             request.HTTPMethod = "GET"
             

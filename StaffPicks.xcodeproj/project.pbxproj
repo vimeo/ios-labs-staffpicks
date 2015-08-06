@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015E33621B73B87A00B576B4 /* VideoMetadataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E33601B73B87A00B576B4 /* VideoMetadataViewController.swift */; };
+		015E33631B73B87A00B576B4 /* VideoMetadataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015E33611B73B87A00B576B4 /* VideoMetadataViewController.xib */; };
 		50FD87E51B331F790064EC16 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD87E31B331F790064EC16 /* VideoCell.swift */; };
 		50FD87E61B331F790064EC16 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50FD87E41B331F790064EC16 /* VideoCell.xib */; };
 		50FD87E81B3324870064EC16 /* VimeoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD87E71B3324870064EC16 /* VimeoClient.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		015E33601B73B87A00B576B4 /* VideoMetadataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoMetadataViewController.swift; sourceTree = "<group>"; };
+		015E33611B73B87A00B576B4 /* VideoMetadataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoMetadataViewController.xib; sourceTree = "<group>"; };
 		50FD87E31B331F790064EC16 /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		50FD87E41B331F790064EC16 /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		50FD87E71B3324870064EC16 /* VimeoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoClient.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				50FD87E31B331F790064EC16 /* VideoCell.swift */,
 				50FD87E41B331F790064EC16 /* VideoCell.xib */,
 				50FD87E71B3324870064EC16 /* VimeoClient.swift */,
+				015E33601B73B87A00B576B4 /* VideoMetadataViewController.swift */,
+				015E33611B73B87A00B576B4 /* VideoMetadataViewController.xib */,
 				50FD87E91B3325D80064EC16 /* Video.swift */,
 				C7229E961B20A80C00C7CADC /* Images.xcassets */,
 				C7229E981B20A80C00C7CADC /* LaunchScreen.xib */,
@@ -207,6 +213,7 @@
 				C7229E9A1B20A80C00C7CADC /* LaunchScreen.xib in Resources */,
 				50FD87E61B331F790064EC16 /* VideoCell.xib in Resources */,
 				C7229E971B20A80C00C7CADC /* Images.xcassets in Resources */,
+				015E33631B73B87A00B576B4 /* VideoMetadataViewController.xib in Resources */,
 				C7229EB21B20ACE000C7CADC /* StaffPicksViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +237,7 @@
 				50FD87E51B331F790064EC16 /* VideoCell.swift in Sources */,
 				50FD87E81B3324870064EC16 /* VimeoClient.swift in Sources */,
 				50FD87EA1B3325D80064EC16 /* Video.swift in Sources */,
+				015E33621B73B87A00B576B4 /* VideoMetadataViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

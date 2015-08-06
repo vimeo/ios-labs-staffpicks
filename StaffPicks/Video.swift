@@ -12,6 +12,7 @@ class Video {
     
     var title: String
     var link: String?
+    var playbackLink: String?
     
     init(json: [String:AnyObject]) {
         
@@ -27,6 +28,15 @@ class Video {
                 var picture = constSizes[0]
                     
                 self.link = picture["link"] as? String
+            }
+        }
+        
+        var files = json["files"] as? [[String:AnyObject]]
+        if let files = files
+        {
+            if let firstFile = files.first
+            {
+                self.playbackLink = firstFile["link"] as? String
             }
         }
     }
