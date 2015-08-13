@@ -16,6 +16,8 @@ class VideoMetadataViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var playerContainerView: UIView!
     
+    var player: MPMoviePlayerController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,8 +38,15 @@ class VideoMetadataViewController: UIViewController {
             
             self.playerContainerView.addSubview(player.view)
             
-            player.play()
+            self.player = player
         }
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        self.player?.play()
     }
 
     override func didReceiveMemoryWarning() {
