@@ -18,12 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.backgroundColor = UIColor.magentaColor()
+
+        var tabViewController = UITabBarController()
         
-        var viewController = StaffPicksViewController(nibName:"StaffPicksViewController", bundle:nil)
+        var viewControllerOne = VideoListViewController(nibName:"VideoListViewController", bundle:nil)
+        viewControllerOne.endpoint = StaffPicksEndpoint
+        var navigationControllerOne = UINavigationController(rootViewController: viewControllerOne)
+        navigationControllerOne.tabBarItem = UITabBarItem(title: "Staff Picks", image: nil, selectedImage: nil)
+
+        var viewControllerTwo = VideoListViewController(nibName:"VideoListViewController", bundle:nil)
+        viewControllerTwo.endpoint = MyVideosEndpoint
+        var navigationControllerTwo = UINavigationController(rootViewController: viewControllerTwo)
+        navigationControllerTwo.tabBarItem = UITabBarItem(title: "My Videos", image: nil, selectedImage: nil)
         
-        var navigationController = UINavigationController(rootViewController: viewController)
+        tabViewController.viewControllers = [navigationControllerOne, navigationControllerTwo]
         
-        self.window?.rootViewController = navigationController
+        self.window?.rootViewController = tabViewController
         
         self.window?.makeKeyAndVisible()
         

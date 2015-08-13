@@ -17,8 +17,8 @@
 		C7229E971B20A80C00C7CADC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7229E961B20A80C00C7CADC /* Images.xcassets */; };
 		C7229E9A1B20A80C00C7CADC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7229E981B20A80C00C7CADC /* LaunchScreen.xib */; };
 		C7229EA61B20A80D00C7CADC /* StaffPicksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229EA51B20A80C00C7CADC /* StaffPicksTests.swift */; };
-		C7229EB11B20ACE000C7CADC /* StaffPicksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229EAF1B20ACE000C7CADC /* StaffPicksViewController.swift */; };
-		C7229EB21B20ACE000C7CADC /* StaffPicksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7229EB01B20ACE000C7CADC /* StaffPicksViewController.xib */; };
+		C7229EB11B20ACE000C7CADC /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7229EAF1B20ACE000C7CADC /* VideoListViewController.swift */; };
+		C7229EB21B20ACE000C7CADC /* VideoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7229EB01B20ACE000C7CADC /* VideoListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +46,8 @@
 		C7229E9F1B20A80C00C7CADC /* StaffPicksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaffPicksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7229EA41B20A80C00C7CADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7229EA51B20A80C00C7CADC /* StaffPicksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffPicksTests.swift; sourceTree = "<group>"; };
-		C7229EAF1B20ACE000C7CADC /* StaffPicksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffPicksViewController.swift; sourceTree = "<group>"; };
-		C7229EB01B20ACE000C7CADC /* StaffPicksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffPicksViewController.xib; sourceTree = "<group>"; };
+		C7229EAF1B20ACE000C7CADC /* VideoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
+		C7229EB01B20ACE000C7CADC /* VideoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				C7229E8F1B20A80C00C7CADC /* AppDelegate.swift */,
-				C7229EAF1B20ACE000C7CADC /* StaffPicksViewController.swift */,
-				C7229EB01B20ACE000C7CADC /* StaffPicksViewController.xib */,
+				C7229EAF1B20ACE000C7CADC /* VideoListViewController.swift */,
+				C7229EB01B20ACE000C7CADC /* VideoListViewController.xib */,
 				50FD87E31B331F790064EC16 /* VideoCell.swift */,
 				50FD87E41B331F790064EC16 /* VideoCell.xib */,
 				50FD87E71B3324870064EC16 /* VimeoClient.swift */,
@@ -214,7 +214,7 @@
 				50FD87E61B331F790064EC16 /* VideoCell.xib in Resources */,
 				C7229E971B20A80C00C7CADC /* Images.xcassets in Resources */,
 				015E33631B73B87A00B576B4 /* VideoMetadataViewController.xib in Resources */,
-				C7229EB21B20ACE000C7CADC /* StaffPicksViewController.xib in Resources */,
+				C7229EB21B20ACE000C7CADC /* VideoListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7229EB11B20ACE000C7CADC /* StaffPicksViewController.swift in Sources */,
+				C7229EB11B20ACE000C7CADC /* VideoListViewController.swift in Sources */,
 				C7229E901B20A80C00C7CADC /* AppDelegate.swift in Sources */,
 				50FD87E51B331F790064EC16 /* VideoCell.swift in Sources */,
 				50FD87E81B3324870064EC16 /* VimeoClient.swift in Sources */,

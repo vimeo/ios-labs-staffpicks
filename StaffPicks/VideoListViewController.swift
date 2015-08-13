@@ -1,5 +1,5 @@
 //
-//  StaffPicksViewController.swift
+//  VideoListViewController.swift
 //  StaffPicks
 //
 //  Created by Zetterstrom, Kevin on 6/4/15.
@@ -8,15 +8,19 @@
 
 import UIKit
 
-class StaffPicksViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class VideoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     var items: [Video] = []
+    
+    var endpoint: String? = StaffPicksEndpoint
 
     @IBOutlet weak var tableView: UITableView?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        self.tabBarItem = UITabBarItem(title: endpoint, image: nil, selectedImage: nil)
   
         let nib = UINib(nibName: "VideoCell", bundle: nil)
         
@@ -25,24 +29,27 @@ class StaffPicksViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView?.dataSource = self
         self.tableView?.delegate = self
         
-        VimeoClient.myVideos { [weak self] (videos, error) -> Void in
-            
-            if let strongSelf = self {
-
-                if let constError = error {
-                    
-                    println("Error fetching staffpicks! \(constError.localizedDescription)")
-                    
-                    return
-                }
+        if let endpoint = self.endpoint
+        {
+            VimeoClient.requestEndpoint(endpoint) { [weak self] (videos, error) -> Void in
                 
-                assert(videos != nil, "videos array should never be nil")
-                
-                if let constVideos = videos {
+                if let strongSelf = self {
                     
-                    strongSelf.items = constVideos
+                    if let constError = error {
+                        
+                        println("Error fetching staffpicks! \(constError.localizedDescription)")
+                        
+                        return
+                    }
                     
-                    strongSelf.tableView?.reloadData()
+                    assert(videos != nil, "videos array should never be nil")
+                    
+                    if let constVideos = videos {
+                        
+                        strongSelf.items = constVideos
+                        
+                        strongSelf.tableView?.reloadData()
+                    }
                 }
             }
         }
