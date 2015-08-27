@@ -14,6 +14,8 @@ class Video {
     var link: String?
     var playbackLink: String?
     
+    var likeURI: String?
+    
     init(json: [String:AnyObject]) {
         
         self.title = json["name"] as? String ?? "Untitled"
@@ -38,6 +40,12 @@ class Video {
             {
                 self.playbackLink = firstFile["link"] as? String
             }
+        }
+        
+        if let metadata = json["metadata"] as? [String:AnyObject],
+           let interactions = metadata["interactions"] as? [String:AnyObject],
+           let likeInteraction = interactions["like"] as? [String:AnyObject] {
+            self.likeURI = likeInteraction["uri"] as? String
         }
     }
 }

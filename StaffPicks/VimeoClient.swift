@@ -7,11 +7,12 @@
 //
 
 typealias ServerResponseCallback = (videos: Array<Video>?, error: NSError?) -> Void
+typealias ServerLikeResponseCallback = (error: NSError?) -> Void
 
 let BaseURL = "https://api.vimeo.com/"
 let StaffPicksEndpoint = "channels/staffpicks/videos"
 let MyVideosEndpoint = "me/videos"
-let AccessToken = "ccc022b6c3c6dcd2025cb92d7294dc07"
+let AccessToken = "b957e8a23f115559b5d640475a1c578e"
 
 import Foundation
 
@@ -25,15 +26,30 @@ class VimeoClient {
         self.requestEndpoint(MyVideosEndpoint, callback: callback)
     }
     
+    static func likeVideo(video: Video, callback: ServerLikeResponseCallback) {
+        if let likeVideoEndpoint = video.likeURI {
+            self.requestEndpoint(likeVideoEndpoint, method: "PUT") { (videos, error) -> Void in
+                callback(error: error)
+            }
+        }
+        else {
+            callback(error: NSError(domain: "NoLikeURIDomain", code: 0, userInfo: nil))
+        }
+    }
+    
     static func requestEndpoint(endpoint: String, callback: ServerResponseCallback) {
-
+        self.requestEndpoint(endpoint, method: "GET", callback: callback)
+    }
+    
+    static func requestEndpoint(endpoint: String, method: String, callback: ServerResponseCallback) {
+        
         let endpointURL = NSURL(string: BaseURL + endpoint)
-
+        
         if let constEndpointURL = endpointURL
         {
             var request = NSMutableURLRequest(URL: constEndpointURL)
             request.addValue("Bearer " + AccessToken, forHTTPHeaderField: "Authorization")
-            request.HTTPMethod = "GET"
+            request.HTTPMethod = method
             
             var task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data: NSData!, response: NSURLResponse!, error: NSError!) -> Void in
                 
@@ -60,11 +76,11 @@ class VimeoClient {
                     if let constVideos = videos
                     {
                         var videoObjects: [Video] = []
-
+                        
                         for jsonVideo in constVideos
                         {
                             var video = Video(json: jsonVideo)
-                                                        
+                            
                             videoObjects.append(video)
                         }
                         
@@ -86,5 +102,4 @@ class VimeoClient {
             task.resume()
         }
     }
-    
 }

@@ -24,6 +24,14 @@ class VideoMetadataViewController: UIViewController {
         titleLabel.text = video?.title
         
         self.setupPlayer()
+        self.setupLikeButton()
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        self.player?.play()
     }
     
     private func setupPlayer() {
@@ -42,11 +50,30 @@ class VideoMetadataViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(animated: Bool)
-    {
-        super.viewDidAppear(animated)
-        
-        self.player?.play()
+    private func setupLikeButton() {
+        let likeButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Reply, target: self, action: Selector("likeButtonTapped"))
+        self.navigationItem.rightBarButtonItem = likeButton
+    }
+    
+    func likeButtonTapped() {
+        let likeAlert = UIAlertController(title: "Like Video", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let likeAction = UIAlertAction(title: "Yes!", style: UIAlertActionStyle.Destructive) { (action) -> Void in
+            self.likeVideo()
+        }
+        let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.Destructive) { (action) -> Void in
+            // do nothing
+        }
+        likeAlert.addAction(likeAction)
+        likeAlert.addAction(cancelAction)
+        self.presentViewController(likeAlert, animated: true, completion: nil)
+    }
+    
+    private func likeVideo() {
+        if let video = self.video {
+            VimeoClient.likeVideo(video, callback: { (error) -> Void in
+                print("\(error)")
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
