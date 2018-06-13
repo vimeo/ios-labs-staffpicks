@@ -12,7 +12,7 @@ typealias ServerLikeResponseCallback = (error: NSError?) -> Void
 let BaseURL = "https://api.vimeo.com/"
 let StaffPicksEndpoint = "channels/staffpicks/videos"
 let MyVideosEndpoint = "me/videos"
-let AccessToken = "b957e8a23f115559b5d640475a1c578e"
+let AccessToken = "GENERATE_AN_ACCESS_TOKEN"
 
 import Foundation
 
